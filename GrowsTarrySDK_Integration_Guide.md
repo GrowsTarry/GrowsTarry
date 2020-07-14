@@ -57,10 +57,13 @@
   | growstarry_video_xx.jar       | video ads functions                             | N            |
 
 * Configure the module's build.gradle for basic functions：
+The landing page after our ads click depends on the androidbrowserhelper module, which can load our web pages with the help of chrome, which can effectively improve the efficiency of advertising conversion
 
 ``` groovy
     dependencies {
-        compile files('libs/growstarry_base_xx.jar')
+        implementation files('libs/growstarry_base_xx.jar')
+         //chrome custom tabs
+        implementation 'com.google.androidbrowserhelper:androidbrowserhelper:1.3.1'
     }
 ```
 
