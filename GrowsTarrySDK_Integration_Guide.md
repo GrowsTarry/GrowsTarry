@@ -29,10 +29,19 @@
 
     [4.4 Splash](#splash)
     
+<<<<<<< HEAD
     [4.5 Appwall](#appwall)
     
     [4.6 Rewarded Video](#reward)
     
+=======
+    [4.4 Splash](#splash)
+    
+    [4.5 Appwall](#appwall)
+    
+    [4.6 Rewarded Video](#reward)
+    
+>>>>>>> ad811aa9014ba76e6124fad398686a1a518953da
     [4.7 Native Video](#native_video)
     
 5. [Error Code For SDK](#error)
@@ -183,31 +192,59 @@ Warning:
 
 ``` java
 public class MyCTAdEventListener extends AdEventListener {
+
+     /**
+     * Get ad success
+     *
+     * @param result Non-persistent object GTNative
+     */
     @Override
     public void onReceiveAdSucceed(GTNative result) {
     }
 
+    /**
+     * Get ad success
+     *
+     * @param result Persistent object AdsVO
+     */
     @Override
-    public void onReceiveAdVoSucceed(AdsNativeVO result) {
+    public void onReceiveAdVoSucceed(AdsVO result) {
     }
 
+
+    /**
+     * Ad display success
+     */
     @Override
-    public void onInterstitialLoadSucceed(GTNative result) {
+    public void onShowSucceed(GTNative result) {
     }
 
+
+    /**
+     * Get ad failed Got data fail + Json fail + Rendering fail
+     */
     @Override
     public void onReceiveAdFailed(GTNative result) {
         Log.i("sdksample", "==error==" + result.getErrorsMsg());
     }
 
+    /**
+     * Go to landing page
+     */
     @Override
-    public void onLandpageShown(GTNative result) {
+    public void onLandPageShown(GTNative result) {
     }
 
+    /**
+     * Ad was clicked
+     */
     @Override
     public void onAdClicked(GTNative result) {
     }
 
+    /**
+     * Ad is closed
+     */
     @Override
     public void onAdClosed(GTNative result) {
     }
@@ -477,6 +514,7 @@ public class MyCTAdEventListener extends AdEventListener {
 ![image](https://user-images.githubusercontent.com/20314643/41895879-b4536200-7955-11e8-9847-587f175c4a54.png)
 ![image](https://user-images.githubusercontent.com/20314643/41895941-e0c6ad1a-7955-11e8-9393-ed91e4a4906f.png)
 
+<<<<<<< HEAD
 ## <a name="splash">4.4 Spalsh integration</a>
 
 ``` java
@@ -523,6 +561,91 @@ GrowsTarrySDK.preloadSplashAd(this, Config.slotIdSplash, new AdEventListener() {
     }
 });
 
+=======
+## <a name="splash">4.4 Splash Ads Integration</a>
+
+> Configure the AndroidManifest.xml for Splash AD
+
+```xml
+	<activity android:name="com.growstarry.kern.view.SplashAdActivity" />    
+```
+
+> Get Splash AD
+
+``` java
+/**
+ * @param context    context
+ * @param slotId     slotId
+ * @param listener callback listener
+ * @param timeOut timeOut  timeout time (in milliseconds)
+ */
+
+GrowsTarrySDK.getSplashAd(this, Config.slotIdSplash, new MyCTAdEventListener() {
+
+
+    @Override
+    public void onReceiveAdSucceed(GTNative result) {
+        Log.d(TAG, "Splash Ad Loaded.");
+        if (!isFinishing()) {
+            finish();
+        }
+    }
+
+    @Override
+    public void onReceiveAdFailed(GTNative result) {
+        if (result != null && result.getErrorsMsg() != null)
+            Log.e(TAG, "onReceiveAdFailed errorMsg=" + result.getErrorsMsg());
+    }
+
+    @Override
+    public void onShowSucceed(GTNative result) {
+        Log.d(TAG, "onShowSucceed");
+        if (result != null) {
+            SplashView splashView = (SplashView) result;
+
+            /*
+             * There are two ways to add a custom view
+             * inflate SplashView.getCustomParentView() or SplashView.addCustomView(view)
+             */
+            //1
+            //LayoutInflater.from(getContext()).inflate(R.layout.custom_splash_layout, splashView.getCustomParentView(), true);
+
+            //2
+            LinearLayout linearLayout = new LinearLayout(result.getContext());
+            linearLayout.setGravity(Gravity.CENTER);
+            linearLayout.setBackgroundColor(Color.WHITE);
+            linearLayout.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, Utils.dpToPx(100)));
+            TextView textView = new TextView(result.getContext());
+            textView.setText("custom");
+            textView.setTextSize(22);
+            linearLayout.addView(textView, new ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+            linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getBaseContext(), "custom", Toast.LENGTH_SHORT).show();
+                }
+            });
+            splashView.addCustomView(linearLayout);
+        }
+    }
+
+    @Override
+    public void onLandPageShown(GTNative result) {
+        Log.d(TAG, "onLandPageShown");
+    }
+
+    @Override
+    public void onAdClicked(GTNative result) {
+        Log.d(TAG, "onAdClicked");
+    }
+
+    @Override
+    public void onAdClosed(GTNative result) {
+        Log.d(TAG, "onAdClosed");
+    }
+
+}, TIME_OUT);
+>>>>>>> ad811aa9014ba76e6124fad398686a1a518953da
 ```
 
 ## <a name="appwall">4.5 Appwall integration</a>
