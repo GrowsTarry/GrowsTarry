@@ -26,12 +26,14 @@
     [4.2 Banner](#banner)
     
     [4.3 Interstitial](#interstitial)
+
+    [4.4 Splash](#splash)
     
-    [4.4 Appwall](#appwall)
+    [4.5 Appwall](#appwall)
     
-    [4.5 Rewarded Video](#reward)
+    [4.6 Rewarded Video](#reward)
     
-    [4.6 Native Video](#native_video)
+    [4.7 Native Video](#native_video)
     
 5. [Error Code For SDK](#error)
 
@@ -475,9 +477,55 @@ public class MyCTAdEventListener extends AdEventListener {
 ![image](https://user-images.githubusercontent.com/20314643/41895879-b4536200-7955-11e8-9847-587f175c4a54.png)
 ![image](https://user-images.githubusercontent.com/20314643/41895941-e0c6ad1a-7955-11e8-9393-ed91e4a4906f.png)
 
+## <a name="splash">4.4 Spalsh integration</a>
 
+``` java
+mSplashContainer = findViewById(R.id.splash_container);
+GrowsTarrySDK.preloadSplashAd(this, Config.slotIdSplash, new AdEventListener() {
 
-## <a name="appwall">4.4 Appwall integration</a>
+    @Override
+    public void onReceiveAdSucceed(GTNative result) {
+        GrowsTarrySDK.showSplashAd(Config.slotIdSplash, mSplashContainer);
+    }
+
+    @Override
+    public void onReceiveAdVoSucceed(AdsVO result) {
+
+    }
+
+    @Override
+    public void onReceiveAdFailed(GTNative result) {
+        //startActivity(new Intent(SplashAdActivity.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onLandPageShown(GTNative result) {
+
+    }
+
+    @Override
+    public void onAdClicked(GTNative result) {
+
+    }
+
+    @Override
+    public void onAdClosed(GTNative result) {
+        //startActivity(new Intent(SplashAdActivity.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onAdTimeOver() {
+        super.onAdTimeOver();
+        //startActivity(new Intent(SplashAdActivity.this, MainActivity.class));
+        finish();
+    }
+});
+
+```
+
+## <a name="appwall">4.5 Appwall integration</a>
 
 > Configure the module's build.gradle for Appwall：
 
@@ -525,7 +573,7 @@ public class MyCTAdEventListener extends AdEventListener {
 
 
 
-## <a name="reward">4.5 Rewarded Video Ad Integration</a>
+## <a name="reward">4.6 Rewarded Video Ad Integration</a>
 
 > **Google Play Services**
 
@@ -660,7 +708,7 @@ public void videoRewarded(String rewardName, String rewardAmount) {
 ![image](https://user-images.githubusercontent.com/20314643/42371626-94e8e6a2-8142-11e8-9598-eb75de753070.png)
 
 
-## <a name="native_video">4.6 Native Video Ad Integration</a>
+## <a name="native_video">4.7 Native Video Ad Integration</a>
 
 > Configure the module's build.gradle for Native Video：
 
