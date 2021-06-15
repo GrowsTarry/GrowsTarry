@@ -552,6 +552,7 @@ GrowsTarrySDK.preloadSplashAd(this, Config.slotIdSplash, new AdEventListener() {
         finish();
     }
 });
+```
 
 ## <a name="appwall">4.5 Appwall integration</a>
 
