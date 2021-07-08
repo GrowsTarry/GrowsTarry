@@ -4,15 +4,17 @@
 
 2. [Integration GrowsTarry SDK](#integration)
 
-    [2.1 Integrating the GrowsTarry SDK in to project](#step1)
+    [2.1 Privacy Policy](#step0)
 
-    [2.2 Initialize the GrowsTarry SDK](#step2)
+    [2.2 Integrating the GrowsTarry SDK in to project](#step1)
 
-    [2.3 GDPR](#step3)
+    [2.3 Initialize the GrowsTarry SDK](#step2)
+
+    [2.4 GDPR](#step3)
     
-    [2.4 Child Oriented Settings](#step4)
+    [2.5 Child Oriented Settings](#step4)
 
-    [2.5 Android code obfuscation](#step5)
+    [2.6 Android code obfuscation](#step5)
     
 3. [Integration Notes](#note)
 
@@ -45,7 +47,14 @@
 
 ## <a name="integration">2.Integration GrowsTarry SDK</a>  
 
-### <a name="step1">2.1 Integrating the GrowsTarry SDK in to project</a>
+### <a name="step0">2.1 Privacy Policy</a>
+
+If your apps are published at Google Play, you should add statements below.
+```
+We may get APP installation list for advertising, but do not upload information directly, using hash algorithm - bloom filter instead.
+```
+
+### <a name="step1">2.2 Integrating the GrowsTarry SDK in to project</a>
 
 * Check SDK in the rar.
 
@@ -98,7 +107,7 @@
 
 
 
-## <a name="step2">2.2 Initialization</a>  
+## <a name="step2">2.3 Initialization</a>  
 
 > Init the SDK in your Application as detailed below: 
 
@@ -114,7 +123,7 @@
     GrowsTarrySDK.setSchema(true);
 ```
 
-## <a name="step3">2.3 GDPR</a>  
+## <a name="step3">2.4 GDPR</a>  
 
 **Use this interface to upload consent from affected users for GDPR**
 
@@ -140,7 +149,7 @@ Warning:
 1. If SDK don't gather the user informatian ,you probably get no fill. 
 2. It is recommended that obtaining the user's consent before SDK initialization. 
 
-## <a name="step4">2.4 Child Oriented Settings</a>  
+## <a name="step4">2.5 Child Oriented Settings</a>  
 In order to comply with the provisions of the Children's Online Privacy Protection Act (COPPA), we provide the setIsChildDirected interface.
 
 Developers can use this interface to indicate that your content is child-oriented. We will stop personalized advertising and put in advertisements suitable for children，which may result in no filling.
@@ -152,7 +161,7 @@ Developers can use this interface to indicate that your content is child-oriente
 Warning:
 1. It is recommended to call this interface before requesting advertisements.
 
-## <a name="step5">2.5 Obfuscation Configuration</a> 
+## <a name="step5">2.6 Obfuscation Configuration</a> 
 > If it needs to obfuscate the codes in building the project process, you should add the following codes into the proguard file:
 
 ``` java
