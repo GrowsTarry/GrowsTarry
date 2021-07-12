@@ -116,6 +116,8 @@
 
 ## <a name="step3">2.3 GDPR</a>  
 
+We may get APP installation list for advertising, but do not upload information directly, using hash algorithm - bloom filter instead.
+
 **Use this interface to upload consent from affected users for GDPR**
 
 ```java
