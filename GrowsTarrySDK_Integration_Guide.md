@@ -8,7 +8,7 @@
 
     [2.2 Initialize the GrowsTarry SDK](#step2)
     
-    [2.3 GDPR](#step3)
+    [2.3 Privacy Policy](#step3)
 
     [2.4 GDPR](#step4)
     
