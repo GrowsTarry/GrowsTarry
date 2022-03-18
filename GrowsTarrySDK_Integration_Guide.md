@@ -601,7 +601,18 @@ GrowsTarrySDK.preloadSplashAd(this, Config.slotIdSplash, new AdEventListener() {
 > Show Appwall.
 
 ``` java
-     GrowsTarryAppwall.showAppwall(context, "Your slotID");
+GrowsTarryAppwall.showAppwall(getContext(), Config.slotIdAppWall, new ShowAppwallListener() {
+    @Override
+    public void onShow() {
+        Log.i(TAG, "showAppwall activity: onShow");
+    }
+
+    @Override
+    public void onClose() {
+        Log.i(TAG, "showAppwall activity: onClose");
+
+    }
+});                        
 ```
 
 > When you successfully integrated the APP Wall Ad, you will see the ads are like this
