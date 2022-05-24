@@ -587,6 +587,7 @@ GrowsTarrySDK.preloadSplashAd(this, Config.slotIdSplash, new AdEventListener() {
 > It‘s better to preload ads for Appwall, to ensure they show properly and in a timely fashion. You can have ads preload with the following line of code:
 
 ``` java
+   GrowsTarrySDK.setUserId("customid");
    GrowsTarryAppwall.preloadAppwall(context, "Your slotID");
 ```
 
