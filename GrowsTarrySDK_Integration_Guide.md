@@ -7,14 +7,12 @@
     [2.1 Integrating the GrowsTarry SDK in to project](#step1)
 
     [2.2 Initialize the GrowsTarry SDK](#step2)
-    
-    [2.3 Privacy Policy](#step3)
 
-    [2.4 GDPR](#step4)
+    [2.3 GDPR](#step4)
     
-    [2.5 Child Oriented Settings](#step5)
+    [2.4 Child Oriented Settings](#step5)
 
-    [2.6 Android code obfuscation](#step6)
+    [2.5 Android code obfuscation](#step6)
     
 3. [Integration Notes](#note)
 
