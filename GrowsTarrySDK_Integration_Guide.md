@@ -104,16 +104,16 @@
 
 > Init the SDK in your Application as detailed below: 
 
-**Please make sure to initialize GrowsTarry SDK before doing anything.**
-
-```java
-    GrowsTarrySDK.initialize(context, "Your slotID");
-```
-
 **Set https**
 If your apps are published on the google play，you must invode this interface accroding to the data privacy.
 ```java
     GrowsTarrySDK.setSchema(true);
+```
+
+**Please make sure to initialize GrowsTarry SDK before doing anything.**
+
+```java
+    GrowsTarrySDK.initialize(context, "Your slotID");
 ```
 
 ## <a name="step3">2.3 Privacy Policy</a>  
