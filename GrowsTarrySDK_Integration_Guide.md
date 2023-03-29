@@ -117,14 +117,7 @@ If your apps are published on the google play，you must invode this interface a
     GrowsTarrySDK.initialize(context, "Your slotID");
 ```
 
-## <a name="step3">2.3 Privacy Policy</a>  
-
-If your apps are published at Google Play, you should add statements below.
-```
-We may get APP installation list for advertising, but do not upload information directly, using hash algorithm - bloom filter instead.
-```
-
-## <a name="step4">2.4 GDPR</a>  
+## <a name="step4">2.3 GDPR</a>  
 **Use this interface to upload consent from affected users for GDPR**
 
 ```java
@@ -149,7 +142,7 @@ Warning:
 1. If SDK don't gather the user informatian ,you probably get no fill. 
 2. It is recommended that obtaining the user's consent before SDK initialization. 
 
-## <a name="step5">2.5 Child Oriented Settings</a>  
+## <a name="step5">2.4 Child Oriented Settings</a>  
 In order to comply with the provisions of the Children's Online Privacy Protection Act (COPPA), we provide the setIsChildDirected interface.
 
 Developers can use this interface to indicate that your content is child-oriented. We will stop personalized advertising and put in advertisements suitable for children，which may result in no filling.
@@ -161,7 +154,7 @@ Developers can use this interface to indicate that your content is child-oriente
 Warning:
 1. It is recommended to call this interface before requesting advertisements.
 
-## <a name="step6">2.6 Obfuscation Configuration</a> 
+## <a name="step6">2.5 Obfuscation Configuration</a> 
 > If it needs to obfuscate the codes in building the project process, you should add the following codes into the proguard file:
 
 ``` java
