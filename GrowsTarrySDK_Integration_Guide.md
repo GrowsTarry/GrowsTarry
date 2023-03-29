@@ -110,8 +110,8 @@
     GrowsTarrySDK.initialize(context, "Your slotID");
 ```
 
-**Set schema https**
-
+**Set https**
+If your apps are published on the google play，you must invode this interface accroding to the data privacy.
 ```java
     GrowsTarrySDK.setSchema(true);
 ```
